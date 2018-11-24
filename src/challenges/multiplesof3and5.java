@@ -8,9 +8,10 @@ public class multiplesof3and5 {
     Utils.startTimer();    
     Utils.print("[START] Starting challenge - Multiples of 3 and 5");
     
+    final long limit = 1000;
     long sum = 0;
     long multiple = 3;
-    while (multiple < 1000) {
+    while (multiple < limit) {
       if(((multiple % 3) == 0) || ((multiple % 5) == 0)) {
         Utils.print("[INFO] " + Long.toString(multiple) + " is a multiple of 3 or 5");
         sum += multiple;
