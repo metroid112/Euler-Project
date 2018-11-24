@@ -4,11 +4,10 @@ import main.Utils;
 
 public class multiplesof3and5 {
 
-  public multiplesof3and5() {
+  public multiplesof3and5(final long limit) {
     Utils.startTimer();    
     Utils.print("[START] Starting challenge - Multiples of 3 and 5");
     
-    final long limit = 1000;
     long sum = 0;
     long multiple = 3;
     while (multiple < limit) {
