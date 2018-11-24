@@ -4,13 +4,12 @@ import main.Utils;
 
 public class evenfibonaccinumbers {
 
-  public evenfibonaccinumbers() {
+  public evenfibonaccinumbers(final long limit) {
     Utils.startTimer();    
     Utils.print("[START] Starting challenge - Even Fibonacci numbers");
 
-    final long limit = 4000000;
     long sum = 0;
-    int fibo = 0;
+    int fibo = 1;
     while (Utils.fibonacci(fibo) < limit) {
       if (Utils.fibonacci(fibo) % 2 == 0) {
         Utils.print("[INFO] " + Long.toString(Utils.fibonacci(fibo)) + " is an even Fibonacci number");
