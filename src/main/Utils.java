@@ -7,6 +7,7 @@ public class Utils {
   
   private static long time;
   private static List<Long> fibonacciSumArray = new LinkedList<Long>();
+  private static List<Boolean> primes = new LinkedList<Boolean>();
   
   public Utils() {
     Utils.fibonacciSumArray.add(0, (long) 0);
@@ -36,12 +37,22 @@ public class Utils {
     }
   }
   
-  public static List<Long> sieveOfEratosthenes(long prime) {
-    List<Long> factors = new LinkedList<Long>();
-    for (long i = 1; i <= prime; i++) {
-      // TODO: incomplete
-    }
-    return factors;
+  public static List<Boolean> sieveOfEratosthenes(long prime) {
+  	if (Utils.primes.size() > prime) {
+  		return Utils.primes;
+  	} else {
+      long limit = Math.round(Math.sqrt(prime));
+      long size = Utils.primes.size();
+      if (Utils.primes.size() < 2) {
+      	size = 2;
+      }
+      for (int i = size; i <= limit; i++) {
+        if (Utils.primes.get(i)) {
+        	
+        }
+      }
+      return primes;
+  	}
   }
   
   public static boolean isPrime(long prime) {
