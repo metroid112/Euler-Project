@@ -35,4 +35,29 @@ public class Utils {
       return fibonacciSumArray.get(Utils.fibonacciSumArray.size() - 1);    
     }
   }
+  
+  public static List<Long> sieveOfEratosthenes(long prime) {
+    List<Long> factors = new LinkedList<Long>();
+    for (long i = 1; i <= prime; i++) {
+      // TODO: incomplete
+    }
+    return factors;
+  }
+  
+  public static boolean isPrime(long prime) {
+    if (prime <= 3) {
+      return prime > 1;
+    }
+    if (prime % 2 == 0 || prime % 3 == 0) {
+      return false;
+    }
+    long primeFactor = 5;
+    while (primeFactor * primeFactor <= prime) {
+      if (prime % primeFactor == 0 || prime % (primeFactor + 2) == 0) {
+        return false;
+      }
+      primeFactor += 6;
+    }
+    return true;
+  }
 }

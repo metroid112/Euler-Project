@@ -1,6 +1,7 @@
 package main;
 
 import challenges.EvenFibonacciNumbers;
+import challenges.LargestPrimeFactor;
 import challenges.MultiplesOf3And5;
 
 public class Main {
@@ -12,6 +13,7 @@ public class Main {
     Utils.print("------------------------------------------------------------------------");
     new EvenFibonacciNumbers(4000000);
     Utils.print("------------------------------------------------------------------------");
-    
+    new LargestPrimeFactor(100);
+    Utils.print("------------------------------------------------------------------------");
   }
 }
