@@ -12,6 +12,9 @@ public class Utils {
   public Utils() {
     Utils.fibonacciSumArray.add(0, (long) 0);
     Utils.fibonacciSumArray.add(1, (long) 1);
+    primes.add(0, false);
+    primes.add(1, false);
+    primes.add(2, true);
   }
 
   public static void print(String print) {
@@ -41,14 +44,16 @@ public class Utils {
   	if (Utils.primes.size() > prime) {
   		return Utils.primes;
   	} else {
-      long limit = Math.round(Math.sqrt(prime));
+      long limit = (long) Math.floor(Math.sqrt(prime));
       long size = Utils.primes.size();
       if (Utils.primes.size() < 2) {
       	size = 2;
       }
-      for (int i = size; i <= limit; i++) {
+      for (int i = Math.toIntExact(size); i <= limit; i++) {
         if (Utils.primes.get(i)) {
-        	
+        	for (int j = i * i; j <= prime; j += i) {
+        		Utils.primes.set(j, false);
+        	}
         }
       }
       return primes;
