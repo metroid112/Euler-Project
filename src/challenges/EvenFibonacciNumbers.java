@@ -2,9 +2,9 @@ package challenges;
 
 import main.Utils;
 
-public class evenfibonaccinumbers {
+public class EvenFibonacciNumbers {
 
-  public evenfibonaccinumbers(final long limit) {
+  public EvenFibonacciNumbers(final long limit) {
     Utils.startTimer();    
     Utils.print("[START] Starting challenge - Even Fibonacci numbers");
 

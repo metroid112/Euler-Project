@@ -2,9 +2,9 @@ package challenges;
 
 import main.Utils;
 
-public class multiplesof3and5 {
+public class MultiplesOf3And5 {
 
-  public multiplesof3and5(final long limit) {
+  public MultiplesOf3And5(final long limit) {
     Utils.startTimer();    
     Utils.print("[START] Starting challenge - Multiples of 3 and 5");
     
