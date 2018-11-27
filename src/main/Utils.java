@@ -1,6 +1,5 @@
 package main;
 
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,13 +7,13 @@ public class Utils {
   
   private static long time;
   private static List<Long> fibonacciSumArray = new LinkedList<Long>();
-  private static List<Boolean> primes = new LinkedList<Boolean>();
+  //private static List<Boolean> primes = new LinkedList<Boolean>();
   
   public Utils() {
     Utils.fibonacciSumArray.add(0, (long) 0);
     Utils.fibonacciSumArray.add(1, (long) 1);
-    primes.add(0, false);
-    primes.add(1, false);
+    //primes.add(0, false);
+    //primes.add(1, false);
   }
 
   public static void print(String print) {
@@ -41,11 +40,15 @@ public class Utils {
   }
   
   public static List<Boolean> sieveOfEratosthenes(long prime) {
+  	List<Boolean> primes = new LinkedList<Boolean>();
+  	for (int i = 0; i <= prime; i++) {
+  		primes.add(true);
+  	}
     long limit = (long) Math.floor(Math.sqrt(prime));
     for (int i = 2; i <= limit; i++) { 
-      if (Utils.primes.get(i)) {
+      if (primes.get(i)) {
       	for (int j = i * i; j <= prime; j += i) {
-      		Utils.primes.set(j, false);
+      		primes.set(j, false);
       	}
       }
     }
