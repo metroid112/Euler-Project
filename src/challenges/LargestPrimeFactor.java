@@ -9,7 +9,7 @@ public class LargestPrimeFactor {
     Utils.print("[START] Starting challenge - Largest Prime factor");
 
     long factor = 2;
-    while (prime != factor) {
+    while (prime != 1) {
     	for (factor = 2; factor <= prime; factor++) {
     		Utils.print("[INFO] Checking if " + Long.toString(factor) + " is a prime factor");
     		if (prime % factor == 0 && Utils.isPrime(factor)) {

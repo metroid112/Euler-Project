@@ -1,8 +1,6 @@
 package main;
 
-import challenges.EvenFibonacciNumbers;
-import challenges.LargestPrimeFactor;
-import challenges.MultiplesOf3And5;
+import challenges.*;
 
 public class Main {
 
@@ -14,6 +12,8 @@ public class Main {
     new EvenFibonacciNumbers(4000000);
     Utils.print("------------------------------------------------------------------------");
     new LargestPrimeFactor(600851475143L);
+    Utils.print("------------------------------------------------------------------------");
+    new LargestPalindromeProduct(3);
     Utils.print("------------------------------------------------------------------------");
   }
 }
