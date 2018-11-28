@@ -25,6 +25,12 @@ public class Utils {
     Utils.print("[INFO] Execution time: " + ((System.nanoTime() - Utils.time) / 1000000) + " milliseconds");
   }
   
+  public static void debug(long... debug) {
+  	for (Long dbg : debug) {
+  		Utils.print("[DEBUG] " + Long.toString(dbg));
+  	}
+  }
+  
   public static long fibonacci(int fibonacci) {
     if (Utils.fibonacciSumArray.size() > fibonacci) {
       return Utils.fibonacciSumArray.get(fibonacci);
@@ -73,10 +79,17 @@ public class Utils {
   	String palindromeString = Integer.toString(palindrome);
   	int size = palindromeString.length();
   	int half = Math.round(size / 2);
+  	StringBuilder reverse = new StringBuilder();
   	if (size % 2 == 0) {
-  		return palindromeString.substring(0, half).equals(palindromeString.substring(half));
+  		reverse.append(palindromeString.substring(half));
+  		reverse.reverse();
+  		String reverseHalf = reverse.toString();
+  		return palindromeString.substring(0, half).equals(reverseHalf);
   	} else {
-  		return palindromeString.substring(0, half).equals(palindromeString.substring(half + 1));
+  		reverse.append(palindromeString.substring(half + 1));
+  		reverse.reverse();
+  		String reverseHalf = reverse.toString();
+  		return palindromeString.substring(0, half).equals(reverseHalf);
   	}
   }
 }
