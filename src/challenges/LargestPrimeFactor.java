@@ -1,7 +1,5 @@
 package challenges;
 
-import java.util.List;
-
 import main.Utils;
 
 public class LargestPrimeFactor {
@@ -11,18 +9,14 @@ public class LargestPrimeFactor {
     Utils.print("[START] Starting challenge - Largest Prime factor");
 
     long factor = 2;
-    List<Boolean> primesSieve = Utils.sieveOfEratosthenes(100);
-    long limit = (long) Math.floor(prime / 2);
-    for (int i = 2; i < primesSieve.size(); i++) {
-    	if (primesSieve.get(i) && prime % i == 0) {
-    		prime /= i;
-    	}
-    }
-    for (long primes = limit; primes >= 2; primes--) {
-    	Utils.print("[INFO] Checking if prime divisor " + primes);
-    	if (prime % primes == 0 && Utils.isPrime(primes)) {
-    		factor = primes;
-    		break;
+    while (prime != factor) {
+    	for (factor = 2; factor <= prime; factor++) {
+    		Utils.print("[INFO] Checking if " + Long.toString(factor) + " is a prime factor");
+    		if (prime % factor == 0 && Utils.isPrime(factor)) {
+    			Utils.print("[INFO] " + Long.toString(factor) + " is a prime factor");
+	    		prime /= factor;
+	    		break;
+	    	}
     	}
     }
     
