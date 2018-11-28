@@ -7,13 +7,10 @@ public class Utils {
   
   private static long time;
   private static List<Long> fibonacciSumArray = new LinkedList<Long>();
-  //private static List<Boolean> primes = new LinkedList<Boolean>();
   
   public Utils() {
     Utils.fibonacciSumArray.add(0, (long) 0);
     Utils.fibonacciSumArray.add(1, (long) 1);
-    //primes.add(0, false);
-    //primes.add(1, false);
   }
 
   public static void print(String print) {
@@ -70,5 +67,16 @@ public class Utils {
       primeFactor += 6;
     }
     return true;
+  }
+  
+  public static boolean isPalindrome(int palindrome) {
+  	String palindromeString = Integer.toString(palindrome);
+  	int size = palindromeString.length();
+  	int half = Math.round(size / 2);
+  	if (size % 2 == 0) {
+  		return palindromeString.substring(0, half).equals(palindromeString.substring(half));
+  	} else {
+  		return palindromeString.substring(0, half).equals(palindromeString.substring(half + 1));
+  	}
   }
 }
