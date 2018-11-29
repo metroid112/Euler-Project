@@ -3,6 +3,8 @@ package main;
 import java.util.LinkedList;
 import java.util.List;
 
+import javafx.util.converter.BigIntegerStringConverter;
+
 public class Utils {
   
   private static long time;
@@ -103,6 +105,7 @@ public class Utils {
   }
   
   public static int gcd(int a, int b) {
+  	Utils.print("****[INFO] Using GCD algorithm between " + a + " and " + b);
   	while (b > 0) {
   		int temp = b;
   		b = a % b;
@@ -111,7 +114,24 @@ public class Utils {
   	return a;
   }
   
+  public static int gcd(int... numbers) {
+  	int result = numbers[0];
+  	for (int i = 1; i < numbers.length; i++) {
+  		result = Utils.gcd(result, numbers[i]);
+  	}
+  	return result;
+  }
+  
   public static int lcm(int a, int b) {
+  	Utils.print("****[INFO] Using LCM algorithm between " + a + " and " + b);
   	return a * (b / Utils.gcd(a, b));
+  }
+  
+  public static int lcm(int... numbers) {
+  	int result = numbers[0];
+  	for (int i = 1; i < numbers.length; i++) {
+  		result = Utils.lcm(result, numbers[i]);
+  	}
+  	return result;
   }
 }
