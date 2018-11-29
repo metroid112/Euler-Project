@@ -8,6 +8,8 @@ public class SmallestMultiple {
     Utils.startTimer();    
     Utils.print("[START] Starting challenge - Smallest Multiple");
     
+    // Recursion
+    
     limit = 10;
     int factor = 2;
     int multiple = limit;
