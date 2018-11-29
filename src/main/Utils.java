@@ -38,6 +38,12 @@ public class Utils {
   	}
   }
   
+  public static void debug(int... debug) {
+  	for (int dbg : debug) {
+  		Utils.print("[DEBUG] " + Integer.toString(dbg));
+  	}
+  }
+  
   public static long fibonacci(int fibonacci) {
     if (Utils.fibonacciSumArray.size() > fibonacci) {
       return Utils.fibonacciSumArray.get(fibonacci);
