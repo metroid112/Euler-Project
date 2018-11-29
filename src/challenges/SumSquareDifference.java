@@ -17,8 +17,10 @@ public class SumSquareDifference {
     for(int sum : numbers) {
     	resultSquared += sum;
     	squaredResults += Math.pow(sum, 2);
+    	Utils.print("[INFO] Squared sum = " + squaredResults);
     }
     resultSquared = (int) Math.pow(resultSquared, 2);
+    Utils.print("[INFO] Sum after squaring = " + resultSquared);
     Utils.debug(resultSquared);
     Utils.debug(squaredResults);
     
