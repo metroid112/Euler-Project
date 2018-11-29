@@ -12,6 +12,11 @@ public class Utils {
     Utils.fibonacciSumArray.add(0, (long) 0);
     Utils.fibonacciSumArray.add(1, (long) 1);
   }
+  
+  public static enum PRINT {
+    INFO,
+    DEBUG
+  }
 
   public static void print(String print) {
     System.out.println(print);
