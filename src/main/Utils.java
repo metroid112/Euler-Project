@@ -97,4 +97,16 @@ public class Utils {
   		return palindromeString.substring(0, half).equals(reverseHalf);
   	}
   }
+  
+  public static List<Integer> primeFactors(int multiple) {
+  	return null;
+  }
+  
+  public static int mcm(int a, int b) {
+  	return 0;
+  }
+  
+  public static int mcd(int a, int b) {
+  	return 0;
+  }
 }
