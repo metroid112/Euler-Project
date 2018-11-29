@@ -27,7 +27,7 @@ public class Utils {
   }
   
   public static void endTimer() {
-    Utils.print("[INFO] Execution time: " + ((System.nanoTime() - Utils.time) / 1000000) + " milliseconds");
+    Utils.print("[TIME] Execution time: " + ((System.nanoTime() - Utils.time) / 1000000) + " milliseconds");
   }
   
   public static void debug(long... debug) {
@@ -102,11 +102,16 @@ public class Utils {
   	return null;
   }
   
-  public static int mcm(int a, int b) {
-  	return 0;
+  public static int gcd(int a, int b) {
+  	while (b > 0) {
+  		int temp = b;
+  		b = a % b;
+  		a = temp;
+  	}
+  	return a;
   }
   
-  public static int mcd(int a, int b) {
-  	return 0;
+  public static int lcm(int a, int b) {
+  	return a * (b / Utils.gcd(a, b));
   }
 }
