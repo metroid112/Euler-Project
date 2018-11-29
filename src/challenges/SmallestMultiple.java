@@ -8,7 +8,7 @@ public class SmallestMultiple {
     Utils.startTimer();    
     Utils.print("[START] Starting challenge - Smallest Multiple");
     
-    limit = 20;
+    limit = 10;
     int factor = 2;
     int multiple = limit;
     int jumps = 1;
