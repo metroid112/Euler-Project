@@ -15,11 +15,11 @@ public class Main {
     Utils.print("------------------------------------------------------------------------");
     //new LargestPrimeFactor(600851475143L);
     Utils.print("------------------------------------------------------------------------");
-    new LargestPalindromeProduct(3); //TODO: Optimize recursion
+    //new LargestPalindromeProduct(3); 
     Utils.print("------------------------------------------------------------------------");
     //new SmallestMultiple(20);
     Utils.print("------------------------------------------------------------------------");
-    //new SumSquareDifference(20);
+    new SumSquareDifference(100);
     Utils.print("------------------------------------------------------------------------");
     
     Utils.print("************************************************************************");
