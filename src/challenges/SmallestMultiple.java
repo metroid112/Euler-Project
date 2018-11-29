@@ -8,9 +8,9 @@ public class SmallestMultiple {
     Utils.startTimer();    
     Utils.print("[START] Starting challenge - Smallest Multiple");
     
-    limit = 10;
+    limit = 20;
     int factor = 2;
-    int multiple = 2;
+    int multiple = limit;
     int jumps = 1;
     while (factor != limit) {
       Utils.print("[INFO] Checking the factors of " + multiple);
@@ -21,18 +21,13 @@ public class SmallestMultiple {
             jumps++;
             factor = i;            
           } else {
-//            if (i > 2) {
-//              for (int j = 2; j <= factor - 1; j++) {
-//                multiple += j;
-//              }    
-//            } 
-//            multiple += 2;
+        		multiple += limit;
             break;
           }
         }
       } else {
-        multiple += 2;
-        factor = 2;        
+        multiple += limit;
+        factor = 2;
       }
     }
     
