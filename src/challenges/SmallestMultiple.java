@@ -1,5 +1,7 @@
 package challenges;
 
+import java.util.Arrays;
+
 import main.Utils;
 
 public class SmallestMultiple {
@@ -8,33 +10,11 @@ public class SmallestMultiple {
     Utils.startTimer();    
     Utils.print("[START] Starting challenge - Smallest Multiple");
     
-    // Recursion
+    int[] factors = new int[limit];
+    Arrays.setAll(factors, a -> a + 1);
+  	int lcm = Utils.lcm(factors);
     
-    limit = 10;
-    int factor = 2;
-    int multiple = limit;
-    int jumps = 1;
-    while (factor != limit) {
-      Utils.print("[INFO] Checking the factors of " + multiple);
-      if (multiple % factor == 0) {
-        for (int i = factor; i <= limit; i++) {
-          if (multiple % i == 0) {
-            Utils.print("[INFO] " + multiple + " is a multiple of " + i);  
-            jumps++;
-            factor = i;            
-          } else {
-        		multiple += limit;
-            break;
-          }
-        }
-      } else {
-        multiple += limit;
-        factor = 2;
-      }
-    }
-    
-    Utils.debug(jumps);
-    Utils.print("[END] The smallest multiple of numbers 1 to " + limit + " is " + multiple);
+    Utils.print("[END] The smallest multiple of numbers 1 to " + limit + " is " + lcm);
     Utils.endTimer();
 	}
 }
