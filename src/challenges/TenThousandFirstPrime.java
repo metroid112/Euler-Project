@@ -17,7 +17,9 @@ public class TenThousandFirstPrime {
     multiples.add(3);
     for (int i = 3; i <= primePlace; i++) {
     	while(!Utils.isPrime(prime)) {
-    		int nextPrime;
+    		for (int multiple : multiples) {
+    			prime += multiple + 1;
+    		}
     	}
     }
     
