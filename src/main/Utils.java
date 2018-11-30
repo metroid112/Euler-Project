@@ -3,8 +3,6 @@ package main;
 import java.util.LinkedList;
 import java.util.List;
 
-import javafx.util.converter.BigIntegerStringConverter;
-
 public class Utils {
   
   private static long time;
@@ -56,16 +54,16 @@ public class Utils {
   }
   
   public static List<Boolean> sieveOfEratosthenes(long prime) {
-  	List<Boolean> primes = new LinkedList<Boolean>();
-  	for (int i = 0; i <= prime; i++) {
-  		primes.add(true);
-  	}
+    List<Boolean> primes = new LinkedList<Boolean>();
+    for (int i = 0; i <= prime; i++) {
+      primes.add(true);
+    }
     long limit = (long) Math.floor(Math.sqrt(prime));
     for (int i = 2; i <= limit; i++) { 
       if (primes.get(i)) {
-      	for (int j = i * i; j <= prime; j += i) {
-      		primes.set(j, false);
-      	}
+        for (int j = i * i; j <= prime; j += i) {
+          primes.set(j, false);
+        }
       }
     }
     return primes;

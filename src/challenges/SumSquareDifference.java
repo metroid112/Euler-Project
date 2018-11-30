@@ -21,8 +21,6 @@ public class SumSquareDifference {
     }
     resultSquared = (int) Math.pow(resultSquared, 2);
     Utils.print("[INFO] Sum after squaring = " + resultSquared);
-    Utils.debug(resultSquared);
-    Utils.debug(squaredResults);
     
     Utils.print("[END] The difference between a squared sum and the sum of squares is " + (resultSquared - squaredResults));
     Utils.endTimer();
