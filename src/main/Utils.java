@@ -78,6 +78,34 @@ public class Utils {
   	}
   }
   
+  public static long value(String longString) {
+  	return Long.valueOf(longString);
+  }
+  
+  public static int value(char intChar) { 
+  	if (Character.isDigit(intChar)) {
+  		return Integer.valueOf(Character.toString(intChar));
+  	} else {
+  		return 1;
+  	}
+  }
+  
+  public static long multiply(long... factors) {
+  	long product = 1;
+  	for (long factor : factors) {
+  		product *= factor;
+  	}
+  	return product;
+  }
+  
+  public static int multiply(int... factors) {
+  	int product = 1;
+  	for (int factor : factors) {
+  		product *= factor;
+  	}
+  	return product;
+  }
+  
   public static long fibonacci(int fibonacci) {
     if (Utils.fibonacciSumArray.size() > fibonacci) {
       return Utils.fibonacciSumArray.get(fibonacci);
