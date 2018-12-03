@@ -7,19 +7,55 @@ public class Utils {
   
   private static long time;
   private static List<Long> fibonacciSumArray = new LinkedList<Long>();
+  private static boolean debug;
   
-  public Utils() {
+  public Utils(boolean debug) {
+  	Utils.debug = debug;
     Utils.fibonacciSumArray.add(0, (long) 0);
     Utils.fibonacciSumArray.add(1, (long) 1);
   }
   
   public static enum PRINT {
     INFO,
-    DEBUG
+    ALG,
+    DEBUG,
+    TIME,
+    START,
+    END,
+    DEFAULT
   }
 
-  public static void print(String print) {
-    System.out.println(print);
+  public static void print(PRINT type, String print) {
+  	switch(type) {
+  	case INFO:
+  		System.out.println("[INFO] " + print);
+  		break;
+  	case ALG:
+  		if (Utils.debug) {
+  			System.out.println("----[ALGORITHM] " + print);
+  		} else {
+  			System.out.println("ACTIVATE DEBUG");
+  		}
+  		break;
+  	case DEBUG:
+  		if (Utils.debug) {
+  			System.out.println("[DEBUG] " + print);
+  		} else {
+  			System.out.print("ACTIVATE DEBUG");
+  		}  		
+  		break;
+  	case TIME:
+  		System.out.println("[TIME] " + print);
+  		break;
+  	case START:
+  		System.out.println("[START] " + print);
+  		break;
+  	case END:
+  		System.out.println("[END] " + print);
+  		break;
+		default:
+			System.out.println(print);
+  	}    
   }
   
   public static void startTimer() {
@@ -27,18 +63,18 @@ public class Utils {
   }
   
   public static void endTimer() {
-    Utils.print("[TIME] Execution time: " + ((System.nanoTime() - Utils.time) / 1000000) + " milliseconds");
+    Utils.print(PRINT.TIME, "Execution time: " + ((System.nanoTime() - Utils.time) / 1000000) + " milliseconds");
   }
   
   public static void debug(long... debug) {
   	for (Long dbg : debug) {
-  		Utils.print("[DEBUG] " + Long.toString(dbg));
+  		Utils.print(PRINT.DEBUG, Long.toString(dbg));
   	}
   }
   
   public static void debug(int... debug) {
   	for (int dbg : debug) {
-  		Utils.print("[DEBUG] " + Integer.toString(dbg));
+  		Utils.print(PRINT.DEBUG, Integer.toString(dbg));
   	}
   }
   
@@ -70,6 +106,7 @@ public class Utils {
   }
   
   public static boolean isPrime(long prime) {
+  	Utils.print(PRINT.ALG, "Checking if " + prime + " is prime");
     if (prime <= 3) {
       return prime > 1;
     }
@@ -109,7 +146,7 @@ public class Utils {
   }
   
   public static int gcd(int a, int b) {
-  	Utils.print("****[INFO] Using GCD algorithm between " + a + " and " + b);
+  	Utils.print(PRINT.ALG, "Using GCD algorithm between " + a + " and " + b);
   	while (b > 0) {
   		int temp = b;
   		b = a % b;
@@ -127,7 +164,7 @@ public class Utils {
   }
   
   public static int lcm(int a, int b) {
-  	Utils.print("****[INFO] Using LCM algorithm between " + a + " and " + b);
+  	Utils.print(PRINT.ALG, "Using LCM algorithm between " + a + " and " + b);
   	return a * (b / Utils.gcd(a, b));
   }
   
