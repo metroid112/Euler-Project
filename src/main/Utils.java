@@ -106,6 +106,10 @@ public class Utils {
   	return product;
   }
   
+  public static boolean isPythagoreanTriplet(int a, int b, int c) {
+  	return Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2);
+  }
+  
   public static long fibonacci(int fibonacci) {
     if (Utils.fibonacciSumArray.size() > fibonacci) {
       return Utils.fibonacciSumArray.get(fibonacci);
