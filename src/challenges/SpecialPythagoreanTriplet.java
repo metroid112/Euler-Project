@@ -1,32 +1,31 @@
 package challenges;
 
-import main.Utils;
+import static main.Utils.*;
+import static main.Utils.PRINT.*;
 
 public class SpecialPythagoreanTriplet {
 
 	public SpecialPythagoreanTriplet(int result) {
-    Utils.startTimer();    
-    Utils.print(Utils.PRINT.START, "Starting challenge - Special Pythagorean Triplet");
+    startTimer();    
+    print(START, "Starting challenge - Special Pythagorean Triplet");
     
-    int a = 3;
-    int b = 4;
-    int c = 5;
-    while (a + b + c != result 
-    		&& !Utils.isPythagoreanTriplet(a, b, c)) {
-    	c++;
-    	while (b + 1 < c || (a + b + c == result 
-      		&& Utils.isPythagoreanTriplet(a, b, c))) {
-    		b++;
+    int a = 1;
+    int b = 1;
+    int c = 1;
+    boolean found = false;
+    for (c = 5; c <= result && !found; c++) {
+    	for (b = 4; b <= c && !found; b++) {
+    		for (a = 3; a <= b && !found; a++) {
+    			found = isPythagoreanTriplet(a,b,c) && a + b + c == result;
+    		}
     	}
-    	while (a + 1 < b || (a + b + c == result 
-    		&& Utils.isPythagoreanTriplet(a, b, c))) {
-    		a++;
-    	}
-    	Utils.debug(a,b,c);
-    	Utils.print(Utils.PRINT.DEBUG, "********");
     }
+    a--;
+    b--;
+    c--;
     
-    Utils.print(Utils.PRINT.END, "The Pythagorean Triplet (" + a + "," + b + "," + c + ") sums " + result);
-    Utils.endTimer();
+    print(END, "The Pythagorean Triplet (" + a + "," + b + "," + c + ") sums " 
+    + (a + b + c) + ", expected result is " + result + ". \nTheir product is " + (a * b * c));
+    endTimer();
 	}
 }

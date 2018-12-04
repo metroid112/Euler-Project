@@ -9,12 +9,6 @@ public class Utils {
   private static List<Long> fibonacciSumArray = new LinkedList<Long>();
   private static boolean debug;
   
-  public Utils(boolean debug) {
-  	Utils.debug = debug;
-    Utils.fibonacciSumArray.add(0, (long) 0);
-    Utils.fibonacciSumArray.add(1, (long) 1);
-  }
-  
   public static enum PRINT {
     INFO,
     ALG,
@@ -23,6 +17,12 @@ public class Utils {
     START,
     END,
     DEFAULT
+  }
+  
+  public Utils(boolean debug) {
+  	Utils.debug = debug;
+    Utils.fibonacciSumArray.add(0, (long) 0);
+    Utils.fibonacciSumArray.add(1, (long) 1);
   }
 
   public static void print(PRINT type, String print) {
