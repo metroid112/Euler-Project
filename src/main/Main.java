@@ -10,7 +10,6 @@ public class Main {
     new Utils(true);
     startTimer();
     print(DEFAULT, "************************************************************************");
-    
     //new MultiplesOf3And5(1000);
     print(DEFAULT, "------------------------------------------------------------------------");
     //new EvenFibonacciNumbers(4000000);
@@ -48,9 +47,36 @@ public class Main {
     print(DEFAULT, "------------------------------------------------------------------------");
     //new SpecialPythagoreanTriplet(1000);
     print(DEFAULT, "------------------------------------------------------------------------");
-    new SummationOfPrimes(2000000);
-    
+    //new SummationOfPrimes(2000000);
+    print(DEFAULT, "------------------------------------------------------------------------");
+    new LargestProductInGrid(new int[][]{
+    													{ 1, 2, 3, 5},
+  														{ 6, 7, 8, 9},
+  														{10,11,12,13},
+  														{14,15,16,17}
+  														}, 4);
     print(DEFAULT, "************************************************************************");
     endTimer();
   }
 }
+
+/*
+TEMPLATE
+package challenges;
+
+import static main.Utils.*;
+import static main.Utils.PRINT.*;
+
+public class  {
+
+	public () {
+    startTimer();    
+    print(START, "Starting challenge - ");
+    
+    
+    print(END, "");
+    endTimer();
+	}
+}
+
+ */
