@@ -2,13 +2,14 @@ package challenges;
 
 import java.util.Arrays;
 
-import main.Utils;
+import static main.Utils.*;
+import static main.Utils.PRINT.*;
 
 public class SumSquareDifference {
 
 	public SumSquareDifference(int limit) {
-    Utils.startTimer();    
-    Utils.print("[START] Starting challenge - Sum square difference");
+    startTimer();    
+    print(START, "Starting challenge - Sum square difference");
     
     int[] numbers = new int[limit];
     Arrays.setAll(numbers, a -> a + 1);
@@ -17,12 +18,12 @@ public class SumSquareDifference {
     for(int sum : numbers) {
     	resultSquared += sum;
     	squaredResults += Math.pow(sum, 2);
-    	Utils.print("[INFO] Squared sum = " + squaredResults);
+    	print(INFO, "Squared sum = " + squaredResults);
     }
     resultSquared = (int) Math.pow(resultSquared, 2);
-    Utils.print("[INFO] Sum after squaring = " + resultSquared);
+    print(INFO, "Sum after squaring = " + resultSquared);
     
-    Utils.print("[END] The difference between a squared sum and the sum of squares is " + (resultSquared - squaredResults));
-    Utils.endTimer();
+    print(END, "The difference between a squared sum and the sum of squares is " + (resultSquared - squaredResults));
+    endTimer();
 	}
 }

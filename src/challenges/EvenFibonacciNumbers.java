@@ -1,24 +1,25 @@
 package challenges;
 
-import main.Utils;
+import static main.Utils.*;
+import static main.Utils.PRINT.*;
 
 public class EvenFibonacciNumbers {
 
   public EvenFibonacciNumbers(final long limit) {
-    Utils.startTimer();    
-    Utils.print("[START] Starting challenge - Even Fibonacci numbers");
+    startTimer();    
+    print(START, "Starting challenge - Even Fibonacci numbers");
 
     long sum = 0;
     int fibo = 1;
-    while (Utils.fibonacci(fibo) < limit) {
-      if (Utils.fibonacci(fibo) % 2 == 0) {
-        Utils.print("[INFO] " + Long.toString(Utils.fibonacci(fibo)) + " is an even Fibonacci number");
-        sum += Utils.fibonacci(fibo);
+    while (fibonacci(fibo) < limit) {
+      if (fibonacci(fibo) % 2 == 0) {
+        print(INFO, "" + Long.toString(fibonacci(fibo)) + " is an even Fibonacci number");
+        sum += fibonacci(fibo);
       }
       fibo++;
     }
     
-    Utils.print("[END] Sum of the even Fibonacci numbers of 3 and 5 is " + Long.toString(sum));
-    Utils.endTimer();
+    print(END, "Sum of the even Fibonacci numbers of 3 and 5 is " + Long.toString(sum));
+    endTimer();
   }
 }
