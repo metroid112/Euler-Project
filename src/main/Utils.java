@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Utils {
   
-  private static long time;
   private static List<Long> fibonacciSumArray = new LinkedList<Long>();
   private static boolean debug;
   
@@ -34,16 +33,12 @@ public class Utils {
   	case ALG:
   		if (Utils.debug) {
   			System.out.println("----[ALGORITHM] " + print);
-  		} else {
-  			System.out.println("ACTIVATE DEBUG");
   		}
   		break;
   	case DEBUG:
   		if (Utils.debug) {
   			System.out.println("[DEBUG] " + print);
-  		} else {
-  			System.out.print("ACTIVATE DEBUG");
-  		}  		
+  		}	
   		break;
   	case TIME:
   		System.out.println("[TIME] " + print);
@@ -59,12 +54,12 @@ public class Utils {
   	}    
   }
   
-  public static void startTimer() {
-    Utils.time = System.nanoTime();
+  public static long startTimer() {
+    return System.nanoTime();
   }
   
-  public static void endTimer() {
-    Utils.print(PRINT.TIME, "Execution time: " + ((System.nanoTime() - Utils.time) / 1000000) + " milliseconds");
+  public static void endTimer(long time) {
+    Utils.print(PRINT.TIME, "Execution time: " + ((System.nanoTime() - time) / 1000000) + " milliseconds");
   }
   
   public static void debug(long... debug) {

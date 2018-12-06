@@ -6,7 +6,7 @@ import static main.Utils.PRINT.*;
 public class LargestPalindromeProduct {
 	
 	public LargestPalindromeProduct(int digits) {
-    startTimer();    
+    long time = startTimer();    
     print(START, "Starting challenge - Largest Palindrome product");
     
     int largestPalindrome = 1;
@@ -25,12 +25,13 @@ public class LargestPalindromeProduct {
     for (i = limit * limit; !found && i >= lowerBound; i--) {
     	for (int j = lowerBound * 9; !found && j >= 1; j--) {
     		if (i % j == 0 && i / j < lowBound && isPalindrome(i)) {
+    			largestPalindrome = i;
     			found = true;
     		}
     	}
     }
     
     print(END, "The largest Palindrome product between 2 numbers of " + digits + " digits is " + largestPalindrome);
-    endTimer();
+    endTimer(time);
 	}
 }

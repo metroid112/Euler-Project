@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class LargestProductInGrid {
 
 	public LargestProductInGrid(int[][] grid, int consecutiveLimit) {
-    startTimer();    
+    long time = startTimer();    
     print(START, "Starting challenge - Special Pythagorean Triplet");
     
     int largestProduct = 1;
@@ -36,33 +36,44 @@ public class LargestProductInGrid {
     			}
     		}
     		
-    		for(;;) // NW \ SE
-	    		if (o < 0 || o >= grid[i].length || o == j) {
-	    			product[2] *= 1;
-	    			product[3] *= 1;
+    		for (int o = -3; o <= 6; o++) {
+    			if (o == 0) {
+    				product[4] *= 1;
+    				product[5] *= 1;
     			} else {
-    				product[o < j ? 2 : 3] *= grid[i][o];
+    				product[4] *= grid[i + o][j + o]; 
     			}
     		}
     		
-    		for (int n = j - 3; n <= j + 3; n++) { // SW / NE
-	    		if (n < 0 || n >= grid[i].length || n == j) {
-	    			product[2] *= 1;
-	    			product[3] *= 1;
-    			} else {
-    				product[n < j ? 2 : 3] *= grid[i][n];
-    			}
-    		}
-    		
-//    		if (product > largestProduct) {
-//    			largestProduct = product;
+//    		for(;;) // NW \ SE
+//	    		if (o < 0 || o >= grid[i].length || o == j) {
+//	    			product[2] *= 1;
+//	    			product[3] *= 1;
+//    			} else {
+//    				product[o < j ? 2 : 3] *= grid[i][o];
+//    			}
 //    		}
+    		
+//    		for (int n = j - 3; n <= j + 3; n++) { // SW / NE
+//	    		if (n < 0 || n >= grid[i].length || n == j) {
+//	    			product[2] *= 1;
+//	    			product[3] *= 1;
+//    			} else {
+//    				product[n < j ? 2 : 3] *= grid[i][n];
+//    			}
+//    		}
+    		
+    		for (int result : product) {
+    			if (result > largestProduct) {
+    				largestProduct = result;
+    			}
+    		}
     	}
     }
     
     // list mayor a menor
     
     print(END, "The summation of primes up to " + largestProduct);
-    endTimer();
+    endTimer(time);
 	}
 }

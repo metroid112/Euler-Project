@@ -6,7 +6,7 @@ import static main.Utils.PRINT.*;
 public class SummationOfPrimes {
 
 	public SummationOfPrimes(int limit) {
-    startTimer();    
+    long time = startTimer();    
     print(START, "Starting challenge - Summation of primes");
     
     long summation = 0;
@@ -18,6 +18,6 @@ public class SummationOfPrimes {
     }
     
     print(END, "The summation of primes up to " + limit + " is " + summation);
-    endTimer();
+    endTimer(time);
 	}
 }
