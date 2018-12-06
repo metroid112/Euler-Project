@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import static java.lang.System.*;
+import static main.Utils.PRINT.*;
+
 public class Utils {
   
   private static List<Long> fibonacciSumArray = new LinkedList<Long>();
@@ -16,61 +19,76 @@ public class Utils {
     TIME,
     START,
     END,
+    MAINSEP,
+    SEP,
     DEFAULT
   }
   
   public Utils(boolean debug) {
   	Utils.debug = debug;
-    Utils.fibonacciSumArray.add(0, (long) 0);
-    Utils.fibonacciSumArray.add(1, (long) 1);
+    fibonacciSumArray.add(0, (long) 0);
+    fibonacciSumArray.add(1, (long) 1);
   }
 
   public static void print(PRINT type, String print) {
   	switch(type) {
   	case INFO:
-  		System.out.println("[INFO] " + print);
+  		out.println("[INFO] " + print);
   		break;
   	case ALG:
-  		if (Utils.debug) {
-  			System.out.println("----[ALGORITHM] " + print);
+  		if (debug) {
+  			out.println("----[ALGORITHM] " + print);
   		}
   		break;
   	case DEBUG:
-  		if (Utils.debug) {
-  			System.out.println("[DEBUG] " + print);
+  		if (debug) {
+  			out.println("[DEBUG] " + print);
   		}	
   		break;
   	case TIME:
-  		System.out.println("[TIME] " + print);
+  		out.println("[TIME] " + print);
   		break;
   	case START:
-  		System.out.println("[START] " + print);
+  		out.println("[START] " + print);
   		break;
   	case END:
-  		System.out.println("[END] " + print);
+  		out.println("[END] " + print);
   		break;
 		default:
-			System.out.println(print);
+			out.println(print);
   	}    
   }
   
+  public static void print(PRINT type) {
+  	switch(type) {
+  	case MAINSEP:
+  		out.println("************************************************************************");
+  		break;
+  	case SEP:
+  		out.println("------------------------------------------------------------------------");
+  		break;
+		default:
+			out.println("");
+  	}
+  }
+  
   public static long startTimer() {
-    return System.nanoTime();
+    return nanoTime();
   }
   
   public static void endTimer(long time) {
-    Utils.print(PRINT.TIME, "Execution time: " + ((System.nanoTime() - time) / 1000000) + " milliseconds");
+    print(TIME, "Execution time: " + ((nanoTime() - time) / 1000000) + " milliseconds");
   }
   
   public static void debug(long... debug) {
   	for (Long dbg : debug) {
-  		Utils.print(PRINT.DEBUG, Long.toString(dbg));
+  		print(DEBUG, Long.toString(dbg));
   	}
   }
   
   public static void debug(int... debug) {
   	for (int dbg : debug) {
-  		Utils.print(PRINT.DEBUG, Integer.toString(dbg));
+  		print(DEBUG, Integer.toString(dbg));
   	}
   }
   
@@ -107,13 +125,13 @@ public class Utils {
   }
   
   public static long fibonacci(int fibonacci) {
-    if (Utils.fibonacciSumArray.size() > fibonacci) {
-      return Utils.fibonacciSumArray.get(fibonacci);
+    if (fibonacciSumArray.size() > fibonacci) {
+      return fibonacciSumArray.get(fibonacci);
     } else {
-      for (int i = Utils.fibonacciSumArray.size(); i <= fibonacci; i++) {
-        Utils.fibonacciSumArray.add(i, Utils.fibonacciSumArray.get(i - 1) + Utils.fibonacciSumArray.get(i - 2));
+      for (int i = fibonacciSumArray.size(); i <= fibonacci; i++) {
+        fibonacciSumArray.add(i, fibonacciSumArray.get(i - 1) + fibonacciSumArray.get(i - 2));
       }
-      return fibonacciSumArray.get(Utils.fibonacciSumArray.size() - 1);    
+      return fibonacciSumArray.get(fibonacciSumArray.size() - 1);    
     }
   }
   
@@ -148,7 +166,7 @@ public class Utils {
   }
   
   public static boolean isPrime(long prime) {
-  	Utils.print(PRINT.ALG, "Checking if " + prime + " is prime");
+  	print(ALG, "Checking if " + prime + " is prime");
     if (prime <= 3) {
       return prime > 1;
     }
@@ -188,7 +206,7 @@ public class Utils {
   }
   
   public static int gcd(int a, int b) {
-  	Utils.print(PRINT.ALG, "Using GCD algorithm between " + a + " and " + b);
+  	print(ALG, "Using GCD algorithm between " + a + " and " + b);
   	while (b > 0) {
   		int temp = b;
   		b = a % b;
@@ -200,20 +218,20 @@ public class Utils {
   public static int gcd(int... numbers) {
   	int result = numbers[0];
   	for (int i = 1; i < numbers.length; i++) {
-  		result = Utils.gcd(result, numbers[i]);
+  		result = gcd(result, numbers[i]);
   	}
   	return result;
   }
   
   public static int lcm(int a, int b) {
-  	Utils.print(PRINT.ALG, "Using LCM algorithm between " + a + " and " + b);
-  	return a * (b / Utils.gcd(a, b));
+  	print(ALG, "Using LCM algorithm between " + a + " and " + b);
+  	return a * (b / gcd(a, b));
   }
   
   public static int lcm(int... numbers) {
   	int result = numbers[0];
   	for (int i = 1; i < numbers.length; i++) {
-  		result = Utils.lcm(result, numbers[i]);
+  		result = lcm(result, numbers[i]);
   	}
   	return result;
   }
