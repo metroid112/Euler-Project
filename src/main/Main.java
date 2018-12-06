@@ -4,28 +4,26 @@ import challenges.*;
 import static main.Utils.*;
 import static main.Utils.PRINT.*;
 
-// TODO: Change console output
-
 public class Main {
 
   public static void main(String[] args) {
     new Utils(false);
     long time = startTimer();
-    print(DEFAULT, "************************************************************************");
+    print(MAINSEP);
     new MultiplesOf3And5(1000);
-    print(DEFAULT, "------------------------------------------------------------------------");
+    print(SEP);
     new EvenFibonacciNumbers(4000000);
-    print(DEFAULT, "------------------------------------------------------------------------");
+    print(SEP);
     new LargestPrimeFactor(600851475143L);
-    print(DEFAULT, "------------------------------------------------------------------------");
+    print(SEP);
     new LargestPalindromeProduct(3); 
-    print(DEFAULT, "------------------------------------------------------------------------");
+    print(SEP);
     new SmallestMultiple(20);
-    print(DEFAULT, "------------------------------------------------------------------------");
+    print(SEP);
     new SumSquareDifference(100);
-    print(DEFAULT, "------------------------------------------------------------------------");
+    print(SEP);
     new TenThousandFirstPrime(10001);
-    print(DEFAULT, "------------------------------------------------------------------------");
+    print(SEP);
     new LargestProductInSeries("73167176531330624919225119674426574742355349194934" + 
     		"96983520312774506326239578318016984801869478851843" + 
     		"85861560789112949495459501737958331952853208805511" + 
@@ -46,18 +44,18 @@ public class Main {
     		"84580156166097919133875499200524063689912560717606" + 
     		"05886116467109405077541002256983155200055935729725" + 
     		"71636269561882670428252483600823257530420752963450", 13);
-    print(DEFAULT, "------------------------------------------------------------------------");
+    print(SEP);
     new SpecialPythagoreanTriplet(1000);
-    print(DEFAULT, "------------------------------------------------------------------------");
+    print(SEP);
     new SummationOfPrimes(2000000);
-    print(DEFAULT, "------------------------------------------------------------------------");
+//    print(SEP);
 //    new LargestProductInGrid(new int[][]{
 //    													{ 1, 2, 3, 5},
 //  														{ 6, 7, 8, 9},
 //  														{10,11,12,13},
 //  														{14,15,16,17}
 //  														}, 4);
-    print(DEFAULT, "************************************************************************");
+    print(MAINSEP);
     endTimer(time);
   }
 }
