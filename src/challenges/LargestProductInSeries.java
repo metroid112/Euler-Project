@@ -1,12 +1,13 @@
 package challenges;
 
-import main.Utils;
+import static main.Utils.*;
+import static main.Utils.PRINT.*;
 
 public class LargestProductInSeries {
 
 	public LargestProductInSeries(String number, int consecutiveDigits) {
-    Utils.startTimer();    
-    Utils.print(Utils.PRINT.START, "Starting challenge - Largest product in a series");
+    long time = startTimer();    
+    print(START, "Starting challenge - Largest product in a series");
     
     long largestProduct = 1;
     long product = 1;
@@ -22,15 +23,15 @@ public class LargestProductInSeries {
     		endPosition = seriesLength - 1;
     	}
     	for (int j = startPosition; j <= endPosition; j++) {
-    		Utils.print(Utils.PRINT.DEBUG, String.valueOf(digits[j]));
-    		product *= Utils.value(digits[j]);
+    		print(DEBUG, String.valueOf(digits[j]));
+    		product *= value(digits[j]);
     	}
     	if (product >= largestProduct) {
     		largestProduct = product;
     	}
     }
     
-    Utils.print(Utils.PRINT.END, "The largest product in the series is " + largestProduct);
-    Utils.endTimer();
+    print(END, "The largest product in the series is " + largestProduct);
+    endTimer(time);
 	}
 }

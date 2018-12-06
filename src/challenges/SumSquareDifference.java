@@ -8,7 +8,7 @@ import static main.Utils.PRINT.*;
 public class SumSquareDifference {
 
 	public SumSquareDifference(int limit) {
-    startTimer();    
+    long time = startTimer();    
     print(START, "Starting challenge - Sum square difference");
     
     int[] numbers = new int[limit];
@@ -18,12 +18,12 @@ public class SumSquareDifference {
     for(int sum : numbers) {
     	resultSquared += sum;
     	squaredResults += Math.pow(sum, 2);
-    	print(INFO, "Squared sum = " + squaredResults);
+    	print(DEBUG, "Squared sum = " + squaredResults);
     }
     resultSquared = (int) Math.pow(resultSquared, 2);
-    print(INFO, "Sum after squaring = " + resultSquared);
+    print(DEBUG, "Sum after squaring = " + resultSquared);
     
     print(END, "The difference between a squared sum and the sum of squares is " + (resultSquared - squaredResults));
-    endTimer();
+    endTimer(time);
 	}
 }

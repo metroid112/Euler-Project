@@ -6,7 +6,7 @@ import static main.Utils.PRINT.*;
 public class SpecialPythagoreanTriplet {
 
 	public SpecialPythagoreanTriplet(int result) {
-    startTimer();    
+    long time = startTimer();    
     print(START, "Starting challenge - Special Pythagorean Triplet");
     
     int a = 1;
@@ -26,6 +26,6 @@ public class SpecialPythagoreanTriplet {
     
     print(END, "The Pythagorean Triplet (" + a + "," + b + "," + c + ") sums " 
     + (a + b + c) + ", expected result is " + result + ". \nTheir product is " + (a * b * c));
-    endTimer();
+    endTimer(time);
 	}
 }
