@@ -37,11 +37,11 @@ public class LargestProductInGrid {
     		}
     		
     		for (int o = -3; o <= 6; o++) {
-    			if (o == 0) {
+    			if (o == 0 || i + o < grid.length || j + o < grid[i].length) {
     				product[4] *= 1;
     				product[5] *= 1;
     			} else {
-    				product[4] *= grid[i + o][j + o]; 
+    				product[i + o < i && j + o < j ? 4 : 5] *= grid[i + o][j + o]; 
     			}
     		}
     		
