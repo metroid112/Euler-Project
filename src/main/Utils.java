@@ -135,22 +135,6 @@ public class Utils {
     }
   }
   
-//  public static List<Boolean> sieveOfEratosthenes(long prime) {
-//    List<Boolean> primes = new LinkedList<Boolean>();
-//    for (int i = 0; i <= prime; i++) {
-//      primes.add(true);
-//    }
-//    long limit = (long) Math.floor(Math.sqrt(prime));
-//    for (int i = 2; i <= limit; i++) { 
-//      if (primes.get(i)) {
-//        for (int j = i * i; j <= prime; j += i) {
-//          primes.set(j, false);
-//        }
-//      }
-//    }
-//    return primes;
-//  }
-  
   public static boolean[] sieveOfEratosthenes(int prime) {
     boolean[] primes = new boolean[prime + 1];
     Arrays.fill(primes, true);
@@ -234,5 +218,18 @@ public class Utils {
   		result = lcm(result, numbers[i]);
   	}
   	return result;
+  }
+  
+  public static int numberOfDivisors(int number) {
+  	//print(ALG, "Finding number of divisors of " + number);
+  	int divisors = 0;
+  	for (int divisor = 1; divisor <= number; divisor++) {
+  		if (number % divisor == 0) {
+  			divisors++;
+  			//print(ALG, "Divisor " + divisor);
+  		}
+  	}  		
+  	//print(ALG, "Number of divisors " + divisors);
+		return divisors;
   }
 }
