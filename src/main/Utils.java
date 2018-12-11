@@ -1,8 +1,10 @@
 package main;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import static java.lang.System.*;
 import static main.Utils.PRINT.*;
@@ -185,8 +187,23 @@ public class Utils {
   	}
   }
   
-  public static List<Integer> primeFactors(int multiple) {
-  	return null;
+  public static Map<Integer, Integer> primeFactors(int multiple) {
+  	Map<Integer, Integer> primeFactors = new HashMap<>();
+  	int prime = 2;
+  	int primePower = 0;
+  	while (multiple >= prime) {
+  		if (multiple % prime == 0) {
+  			multiple /= prime;
+  			primePower++;
+  			primeFactors.put(prime, primePower);
+  			print(ALG, "Prime " + prime + " is a factor with exponent " + primePower + " of the number " + multiple);
+  		} else {
+  			primePower = 0;
+  			prime++;
+  			print(ALG, "Trying with the next prime " + prime);
+  		}
+  	}
+  	return primeFactors;
   }
   
   public static int gcd(int a, int b) {
@@ -221,15 +238,25 @@ public class Utils {
   }
   
   public static int numberOfDivisors(int number) {
-  	//print(ALG, "Finding number of divisors of " + number);
+  	print(ALG, "Finding number of divisors of " + number);
   	int divisors = 0;
   	for (int divisor = 1; divisor <= number; divisor++) {
   		if (number % divisor == 0) {
   			divisors++;
-  			//print(ALG, "Divisor " + divisor);
+  			print(ALG, "Divisor " + divisor);
   		}
   	}  		
-  	//print(ALG, "Number of divisors " + divisors);
+  	print(ALG, "Number of divisors " + divisors);
+		return divisors;
+  }
+  
+  public static int numberOfDivisorsWithPrimes(int number) {
+  	print(ALG, "Finding number of divisors of " + number);
+  	int divisors = 1;
+  	for(int primeFactor : primeFactors(number).values()) {
+  		divisors *= (primeFactor + 1);
+  	}
+  	print(ALG, "Number of divisors " + divisors);
 		return divisors;
   }
 }
