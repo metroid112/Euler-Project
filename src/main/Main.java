@@ -3,6 +3,7 @@ package main;
 import challenges.*;
 import static main.Utils.*;
 import static main.Utils.PRINT.*;
+import static main.LargeInput.*;
 
 public class Main {
 
@@ -72,7 +73,8 @@ public class Main {
 //															{ 1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48}
 //															}, 4);
 //	  print(SEP);
-	  new HighlyDivisibleTriangleNumber(500);
+//	  new HighlyDivisibleTriangleNumber(500);
+    new LargeSum(LargeSum);
     print(MAINSEP);
     endTimer(time);
   }
@@ -88,12 +90,12 @@ import static main.Utils.PRINT.*;
 public class  {
 
 	public () {
-    startTimer();    
+    long time = startTimer();    
     print(START, "Starting challenge - ");
     
     
     print(END, "");
-    endTimer();
+    endTimer(time);
 	}
 }
 

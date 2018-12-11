@@ -3,10 +3,6 @@ package challenges;
 import static main.Utils.*;
 import static main.Utils.PRINT.*;
 
-import java.util.Map.Entry;
-
-import main.Utils.PRINT;
-
 public class HighlyDivisibleTriangleNumber {
 
 	public HighlyDivisibleTriangleNumber(int divisors) {
