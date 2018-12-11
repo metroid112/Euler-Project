@@ -7,7 +7,7 @@ import static main.Utils.PRINT.*;
 public class Main {
 
   public static void main(String[] args) {
-    new Utils(true);
+    new Utils(false);
     long time = startTimer();
     print(MAINSEP);
 //    new MultiplesOf3And5(1000);
