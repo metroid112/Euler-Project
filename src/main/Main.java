@@ -74,7 +74,7 @@ public class Main {
 //															}, 4);
 //	  print(SEP);
 //	  new HighlyDivisibleTriangleNumber(500);
-    new LargeSum(LargeSum);
+    new LargeSum("12345123451234512345", 2, 5);
     print(MAINSEP);
     endTimer(time);
   }
