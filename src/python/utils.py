@@ -6,7 +6,7 @@ now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 logging.basicConfig(
     filename='execution.log',
     format='{0} %(levelname)s:\t%(message)s'.format(now),
-    level=logging.DEBUG
+    level=logging.INFO
 )
 LOGGER = logging.getLogger('log')
 
@@ -30,6 +30,7 @@ def time_function(function, *args):
 
 
 def is_multiple(number, multiple):
+    LOGGER.debug('{0} % {1} = {2}'.format(number, multiple, number % multiple))
     return number % multiple == 0
 
 

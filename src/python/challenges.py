@@ -11,4 +11,4 @@ def multiplesof3and5(*args):
         logger.debug('Checking if number {0} is multiple of 3 or 5'.format(i))
         if is_multiple(i, 3) or is_multiple(i, 5):
             result += i
-            logger.info('Sum so far is: {0}'.format(result))
+            logger.info('{0} is a multiple of 3 or 5. Sum so far is: {1}'.format(i, result))
