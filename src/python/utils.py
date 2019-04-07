@@ -34,3 +34,14 @@ def is_multiple(number, multiple):
     return number % multiple == 0
 
 
+def fibonacci_up_to(limit):
+    fib_1 = 1
+    fib_2 = 1
+    fib_sum = []
+    while fib_2 < limit:
+        LOGGER.debug('{} {} {}'.format(fib_1, fib_2, fib_sum))
+        fib_sum.append(fib_1 + fib_2)
+        fib_1 = fib_2
+        fib_2 = fib_sum[-1]
+    return fib_sum
+
