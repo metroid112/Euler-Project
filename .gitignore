@@ -22,3 +22,10 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /bin/
+.idea/modules.xml
+.idea/misc.xml
+.idea/Euler-Project.iml___jb_tmp___
+.idea/Euler-Project.iml
+.idea/encodings.xml
+.idea/vcs.xml
+.idea/workspace.xml
