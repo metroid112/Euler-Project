@@ -83,3 +83,10 @@ def is_prime(number):
         factor += 6
     return True
 
+
+def is_palindrome(number):
+    str_number = str(number)
+    for i in range(len(str_number)):
+        if not str_number[i] == str_number[-i - 1]:
+            return False
+    return True

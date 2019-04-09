@@ -1,5 +1,4 @@
 from utils import *
-import math
 
 logger = get_logger()
 
@@ -9,11 +8,11 @@ def multiplesof3and5(*args):
     limit = args[0][0]
     result = 0
     for i in range(1, limit):
-        logger.debug('Checking if number {0} is multiple of 3 or 5'.format(i))
+        logger.debug(f'Checking if number {i} is multiple of 3 or 5')
         if is_multiple(i, 3) or is_multiple(i, 5):
             result += i
-            logger.debug('Sum so far is: {1}'.format(i, result))
-    logger.info('{0} is the sum of all numbers under {1} that are multiples of 3 or 5'.format(result, limit))
+            logger.debug(f'Sum so far is: {result}')
+    logger.info(f'{result} is the sum of all numbers under {limit} that are multiples of 3 or 5')
 
 
 def evenfibonaccinumbers(*args):
@@ -24,26 +23,11 @@ def evenfibonaccinumbers(*args):
     for i in fib:
         if i % 2 == 0:
             result += i
-    logger.info('The sum of the even Fibonacci numbers whose value are under {0} is {1}'.format(limit, result))
+    logger.info(f'The sum of the even Fibonacci numbers whose value are under {limit} is {result}')
 
 
 def largestprimefactor(*args):
     logger.info('Starting challenge: Largest prime factor')
-    limit = args[0][0]
-    result = 2
-    limit_aux = limit
-    while limit_aux != 1:
-        for i in range(2, int(limit_aux + 1)):
-            if limit_aux % i == 0 and is_prime(i):
-                logger.debug('{} is a prime factor of {}'.format(i, limit_aux))
-                limit_aux /= i
-                result = i
-                break
-    logger.info('The largest prime factor of {0} is {1}'.format(limit, result))
-
-
-def largestpalindromeproduct(*args):
-    logger.info('Starting challenge: Largest palindrome product')
     limit = args[0][0]
     result = 2
     limit_aux = limit
@@ -55,6 +39,18 @@ def largestpalindromeproduct(*args):
                 result = i
                 break
     logger.info(f'The largest prime factor of {limit} is {result}')
+
+
+def largestpalindromeproduct(*args):
+    logger.info('Starting challenge: Largest palindrome product')
+    digits = args[0][0]
+    result = 2
+    limit = ''
+    for i in range(digits):
+        limit += '9'
+    limit_1 = int(limit)
+    limit_2 = limit
+    logger.info(f'The largest palindrome product of 2 numbers of {digits} digits is {result}')
 
     
 
