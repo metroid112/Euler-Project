@@ -1,6 +1,7 @@
 import logging
 import datetime
 import timeit
+import math
 
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 logging.basicConfig(
@@ -48,4 +49,24 @@ def fibonacci_up_to(limit):
         fib_1 = fib_2
         fib_2 = fib_sum[-1]
     return fib_sum
+
+
+def primes_up_to(limit):
+    LOGGER.debug('Primes up to {0}'.format(limit))
+    primes_boolean = []
+    primes = []
+    for i in range(limit + 1):
+        primes_boolean.append(True)
+    for i in range(2, math.floor(math.sqrt(limit))):
+        if primes_boolean[i]:
+            i_squared = int(math.pow(i, 2))
+            for j in range(i_squared, limit + 1, i):
+                primes_boolean[j] = False
+                LOGGER.debug('{} is not a prime'.format(j))
+    for i in range(len(primes_boolean)):
+        if primes_boolean[i]:
+            primes.append(i)
+    LOGGER.debug('Primes: {}'.format(primes))
+    return primes
+
 

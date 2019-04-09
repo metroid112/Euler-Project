@@ -1,4 +1,5 @@
 from utils import *
+import math
 
 logger = get_logger()
 
@@ -27,8 +28,14 @@ def evenfibonaccinumbers(*args):
 
 
 def largestprimefactor(*args):
-    logger.info('Starting challenge: Even Fibonacci numbers')
+    logger.info('Starting challenge: Largest prime factor')
     limit = args[0][0]
-    result = 0
+    result = 2
+    primes = primes_up_to(math.floor(100000))
+    # for prime in primes:
+    #     if prime % limit == 0 and prime >= result:
+    #         result = prime
+    logger.info('The largest prime factor of {0} is {1}'.format(limit, result))
+
     
 
