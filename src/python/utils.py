@@ -63,10 +63,23 @@ def primes_up_to(limit):
             for j in range(i_squared, limit + 1, i):
                 primes_boolean[j] = False
                 LOGGER.debug('{} is not a prime'.format(j))
-    for i in range(len(primes_boolean)):
+    for i in range(2, len(primes_boolean)):
         if primes_boolean[i]:
             primes.append(i)
     LOGGER.debug('Primes: {}'.format(primes))
     return primes
 
+
+def is_prime(number):
+    LOGGER.debug('Checking if {0} is a prime'.format(number))
+    if number <= 3:
+        return number > 1
+    if number % 2 == 0 or number % 3 == 0:
+        return False
+    factor = 5
+    while math.pow(factor, 2) <= number:
+        if number % factor == 0 or number % (factor + 2) == 0:
+            return False
+        factor += 6
+    return True
 

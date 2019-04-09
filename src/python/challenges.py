@@ -31,11 +31,30 @@ def largestprimefactor(*args):
     logger.info('Starting challenge: Largest prime factor')
     limit = args[0][0]
     result = 2
-    primes = primes_up_to(math.floor(100000))
-    # for prime in primes:
-    #     if prime % limit == 0 and prime >= result:
-    #         result = prime
+    limit_aux = limit
+    while limit_aux != 1:
+        for i in range(2, int(limit_aux + 1)):
+            if limit_aux % i == 0 and is_prime(i):
+                logger.debug('{} is a prime factor of {}'.format(i, limit_aux))
+                limit_aux /= i
+                result = i
+                break
     logger.info('The largest prime factor of {0} is {1}'.format(limit, result))
+
+
+def largestpalindromeproduct(*args):
+    logger.info('Starting challenge: Largest palindrome product')
+    limit = args[0][0]
+    result = 2
+    limit_aux = limit
+    while limit_aux != 1:
+        for i in range(2, int(limit_aux + 1)):
+            if limit_aux % i == 0 and is_prime(i):
+                logger.debug(f'{i} is a prime factor of {limit_aux}')
+                limit_aux /= i
+                result = i
+                break
+    logger.info(f'The largest prime factor of {limit} is {result}')
 
     
 
