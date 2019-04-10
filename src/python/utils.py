@@ -71,22 +71,29 @@ def primes_up_to(limit):
 
 
 def is_prime(number):
-    LOGGER.debug('Checking if {0} is a prime'.format(number))
+    LOGGER.debug(f'\tChecking if {number} is a prime')
     if number <= 3:
+        LOGGER.debug(f'\t{number} is ' + 'not' if number <= 1 else '' + ' a prime')
         return number > 1
     if number % 2 == 0 or number % 3 == 0:
+        LOGGER.debug(f'\t{number} is not a prime')
         return False
     factor = 5
     while math.pow(factor, 2) <= number:
         if number % factor == 0 or number % (factor + 2) == 0:
+            LOGGER.debug(f'\t{number} is not a prime')
             return False
         factor += 6
+    LOGGER.debug(f'\t{number} is a prime')
     return True
 
 
 def is_palindrome(number):
+    LOGGER.debug(f'\tChecking if {number} is palindrome')
     str_number = str(number)
     for i in range(len(str_number)):
         if not str_number[i] == str_number[-i - 1]:
+            LOGGER.debug(f'\t{number} is not a palindrome')
             return False
+    LOGGER.debug(f'\t{number} is a palindrome')
     return True
