@@ -44,12 +44,17 @@ def largestprimefactor(*args):
 def largestpalindromeproduct(*args):
     logger.info('Starting challenge: Largest palindrome product')
     digits = args[0][0]
-    result = 2
+    result = 0
     limit = ''
     for i in range(digits):
         limit += '9'
-    limit_1 = int(limit)
-    limit_2 = limit
+    limit = int(limit)
+    for i in range(limit + 1):
+        for j in range(limit + 1):
+            product = i * j
+            if is_palindrome(product) and product >= result:
+                logger.debug(f'{product} is palindrome and bigger than {result}')
+                result = i * j
     logger.info(f'The largest palindrome product of 2 numbers of {digits} digits is {result}')
 
     
