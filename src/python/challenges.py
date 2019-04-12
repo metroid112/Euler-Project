@@ -49,10 +49,16 @@ def largestpalindromeproduct(*args):
     for i in range(digits):
         limit += '9'
     limit = int(limit)
-    for i in range(limit + 1):
-        for j in range(limit + 1):
+    lower_limit = limit
+    for i in range(digits - 1):
+        lower_limit /= 10
+    lower_limit = int(limit / lower_limit)
+    for i in range(lower_limit, limit + 1):
+        for j in range(i, limit + 1):
             product = i * j
-            if is_palindrome(product) and product >= result:
+            if i * j <= result:
+                break
+            if is_palindrome(product):
                 logger.debug(f'{product} is palindrome and bigger than {result}')
                 result = i * j
     logger.info(f'The largest palindrome product of 2 numbers of {digits} digits is {result}')
