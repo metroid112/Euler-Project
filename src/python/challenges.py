@@ -63,5 +63,9 @@ def largestpalindromeproduct(*args):
                 result = i * j
     logger.info(f'The largest palindrome product of 2 numbers of {digits} digits is {result}')
 
-    
 
+def smallest_multiple(*args):
+    logger.info('Starting challenge: Smallest multiple')
+    limit = args[0][0]
+    result = 1
+    logger.info(f'The smallest multiple of numbers between 1 and {limit} is {result}')

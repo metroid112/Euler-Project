@@ -13,6 +13,7 @@ def main(inside_recursion):
         utils.time_function(challenges.evenfibonaccinumbers, 4000000)
         utils.time_function(challenges.largestprimefactor, 600851475143)
         utils.time_function(challenges.largestpalindromeproduct, 3)
+        utils.time_function(challenges.smallest_multiple, 10)
 
 
 if __name__ == '__main__':
