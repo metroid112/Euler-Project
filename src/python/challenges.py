@@ -49,10 +49,10 @@ def largestpalindromeproduct(*args):
     for i in range(digits):
         limit += '9'
     limit = int(limit)
-    lower_limit = limit
+    div_lower_limit = limit
     for i in range(digits - 1):
-        lower_limit /= 10
-    lower_limit = int(limit / lower_limit)
+        div_lower_limit /= 10
+    lower_limit = int(limit / div_lower_limit)
     for i in range(lower_limit, limit + 1):
         for j in range(i, limit + 1):
             product = i * j
