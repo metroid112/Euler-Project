@@ -7,7 +7,7 @@ now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 logging.basicConfig(
     filename='execution.log',
     format='{0} %(levelname)s:\t%(message)s'.format(now),
-    level=logging.DEBUG
+    level=logging.INFO
 )
 LOGGER = logging.getLogger('log')
 separator = '******************************************************************************************'
@@ -23,12 +23,15 @@ def get_logger():
 
 
 def time_function(function, *args):
+    setup = 'from '
+    setup += 'main ' if function.__name__ == 'main' else 'challenges '
+    setup += f'import {function.__name__}'
     time = timeit.timeit(
-        '{0}({1})'.format(function.__name__, args),
-        setup='from challenges import {0}'.format(function.__name__),
+        f'{function.__name__}({args})',
+        setup=setup,
         number=1
     )
-    LOGGER.info('{0} took {1} seconds'.format(function.__name__, time))
+    LOGGER.info(f'{function.__name__} took {time} seconds')
     LOGGER.info(separator)
 
 
