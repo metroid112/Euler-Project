@@ -29,15 +29,7 @@ def evenfibonaccinumbers(*args):
 def largestprimefactor(*args):
     logger.info('Starting challenge: Largest prime factor')
     limit = args[0][0]
-    result = 2
-    limit_aux = limit
-    while limit_aux != 1:
-        for i in range(2, int(limit_aux + 1)):
-            if limit_aux % i == 0 and is_prime(i):
-                logger.debug(f'{i} is a prime factor of {limit_aux}')
-                limit_aux /= i
-                result = i
-                break
+    result = prime_factorization(limit)[-1]
     logger.info(f'The largest prime factor of {limit} is {result}')
 
 
@@ -67,5 +59,5 @@ def largestpalindromeproduct(*args):
 def smallest_multiple(*args):
     logger.info('Starting challenge: Smallest multiple')
     limit = args[0][0]
-    result = 1
+    result = lcm_between(range(1, limit + 1))
     logger.info(f'The smallest multiple of numbers between 1 and {limit} is {result}')

@@ -7,7 +7,7 @@ now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 logging.basicConfig(
     filename='execution.log',
     format='{0} %(levelname)s:\t%(message)s'.format(now),
-    level=logging.INFO
+    level=logging.DEBUG
 )
 LOGGER = logging.getLogger('log')
 separator = '******************************************************************************************'
@@ -39,6 +39,53 @@ def is_multiple(number, multiple):
     mod = number % multiple
     LOGGER.debug('\tIs {0} multiple of {1}: {2}'.format(number, multiple, mod == 0))
     return mod == 0
+
+
+def multiply_up_to(number):
+    result = 1
+    for i in range(1, number + 1):
+        result *= i
+    return result
+
+
+def gcd(a, b):
+    LOGGER.debug(f'\tGreatest common divisor between {a} and {b}')
+    while b != 0:
+        temp = b
+        b = a % b
+        a = temp
+    LOGGER.debug(f'\tGCD is {a}')
+    return a
+
+
+def gcd_recursive(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd_recursive(b, a & b)
+
+
+def gcm_between(numbers):
+    result = numbers[0]
+    for i in range(1, len(numbers)):
+        result = gcd(result, numbers[i])
+    return result
+
+
+def lcm(a, b):
+    LOGGER.debug(f'\tLeast common multiple between {a} and {b} is {abs(a * b) / gcd(a, b)}')
+    return abs(a * b) / gcd(a, b)
+
+
+def lcm_recursive(a, b):
+    return abs(a * b) / gcd_recursive(a, b)
+
+
+def lcm_between(numbers):
+    result = numbers[0]
+    for i in range(1, len(numbers)):
+        result = lcm(result, numbers[i])
+    return result
 
 
 def fibonacci_up_to(limit):
@@ -100,3 +147,26 @@ def is_palindrome(number):
             return False
     LOGGER.debug(f'\t{number} is a palindrome')
     return True
+
+
+def prime_factorization(number):
+    LOGGER.debug(f'\tCalculating prime factorization of {number}')
+    prime_factors = []
+    while number % 2 == 0:
+        LOGGER.debug(f'\t{2} is a prime factor')
+        prime_factors.append(2)
+        number /= 2
+    factor = 3
+    while factor * factor <= number:
+        if number % factor == 0:
+            LOGGER.debug(f'\t{factor} is a prime factor')
+            prime_factors.append(factor)
+            number /= factor
+        else:
+            factor += 2
+    if number != 1:
+        LOGGER.debug(f'\t{int(number)} is a prime factor')
+        prime_factors.append(int(number))
+    LOGGER.debug(f'\tPrime factors: {prime_factors}')
+    return prime_factors
+
