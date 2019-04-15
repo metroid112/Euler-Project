@@ -68,3 +68,10 @@ def sumsquaredifference(*args):
     limit = args[0][0]
     result = squared_sum(range(1, limit + 1)) - sum_squares(range(1, limit + 1))
     logger.info(f'The sum square difference of the natural numbers up to {limit} is {result}')
+
+
+def nthprime(*args):
+    logger.info(f'Starting challenge: Nth ({args[0][0]}) prime')
+    limit = args[0][0]
+
+

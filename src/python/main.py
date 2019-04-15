@@ -14,7 +14,8 @@ def main(inside_recursion):
         # utils.time_function(challenges.largestprimefactor, 600851475143)
         # utils.time_function(challenges.largestpalindromeproduct, 3)
         # utils.time_function(challenges.smallestmultiple, 20)
-        utils.time_function(challenges.sumsquaredifference, 100)
+        # utils.time_function(challenges.sumsquaredifference, 100)
+        utils.time_function(challenges.nthprime, 10001)
 
 
 if __name__ == '__main__':
