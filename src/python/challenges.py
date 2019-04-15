@@ -56,8 +56,15 @@ def largestpalindromeproduct(*args):
     logger.info(f'The largest palindrome product of 2 numbers of {digits} digits is {result}')
 
 
-def smallest_multiple(*args):
+def smallestmultiple(*args):
     logger.info('Starting challenge: Smallest multiple')
     limit = args[0][0]
     result = lcm_between(range(1, limit + 1))
     logger.info(f'The smallest multiple of numbers between 1 and {limit} is {result}')
+
+
+def sumsquaredifference(*args):
+    logger.info('Starting challenge: Sum square difference')
+    limit = args[0][0]
+    result = squared_sum(range(1, limit + 1)) - sum_squares(range(1, limit + 1))
+    logger.info(f'The sum square difference of the natural numbers up to {limit} is {result}')

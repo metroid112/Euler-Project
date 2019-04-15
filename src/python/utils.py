@@ -65,10 +65,11 @@ def gcd_recursive(a, b):
         return gcd_recursive(b, a & b)
 
 
-def gcm_between(numbers):
+def gcd_between(numbers):
     result = numbers[0]
     for i in range(1, len(numbers)):
         result = gcd(result, numbers[i])
+    LOGGER.debug(f'\tGCD between {numbers} is {result}')
     return result
 
 
@@ -85,7 +86,24 @@ def lcm_between(numbers):
     result = numbers[0]
     for i in range(1, len(numbers)):
         result = lcm(result, numbers[i])
+    LOGGER.debug(f'\tLCM between {numbers} is {result}')
     return result
+
+
+def sum_squares(numbers):
+    result = 0
+    for i in numbers:
+        result += i * i
+    LOGGER.debug(f'\tSum of the squares of {list(numbers)} is {result}')
+    return result
+
+
+def squared_sum(numbers):
+    result = 0
+    for i in numbers:
+        result += i
+    LOGGER.debug(f'\tSquared sum of {list(numbers)} is {result * result}')
+    return result * result
 
 
 def fibonacci_up_to(limit):
