@@ -127,14 +127,27 @@ def primes_up_to(limit):
         primes_boolean.append(True)
     for i in range(2, math.floor(math.sqrt(limit))):
         if primes_boolean[i]:
-            i_squared = int(math.pow(i, 2))
-            for j in range(i_squared, limit + 1, i):
+            for j in range(i * i, limit + 1, i):
                 primes_boolean[j] = False
                 LOGGER.debug('{} is not a prime'.format(j))
     for i in range(2, len(primes_boolean)):
         if primes_boolean[i]:
             primes.append(i)
     LOGGER.debug('Primes: {}'.format(primes))
+    return primes
+
+
+def nth_primes(limit):
+    LOGGER.debug(f'\tCalculating the first {limit} primes')
+    number = 3
+    i = 1
+    primes = [2]
+    while i < limit:
+        if is_prime(number):
+            primes.append(number)
+            i += 1
+        number += 2
+    LOGGER.debug(f'\tPrimes: {primes}')
     return primes
 
 

@@ -73,5 +73,6 @@ def sumsquaredifference(*args):
 def nthprime(*args):
     logger.info(f'Starting challenge: Nth ({args[0][0]}) prime')
     limit = args[0][0]
-
+    result = nth_primes(limit)[-1]
+    logger.info(f'The prime number {limit} is {result}')
 
