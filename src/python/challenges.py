@@ -76,3 +76,23 @@ def nthprime(*args):
     result = nth_primes(limit)[-1]
     logger.info(f'The prime number {limit} is {result}')
 
+
+def largestproductinaseries(*args):
+    logger.info(f'Starting challenge: Largest product in a series')
+    series = args[0][0]
+    consecutive_digits = args[0][1]
+    result = 0
+    for i in range(len(series)):
+        digit = int(series[i])
+        mul = digit
+        end_pos = i + consecutive_digits - 1
+        if end_pos >= len(series):
+            end_pos = len(series) - 1
+        for j in range(i, end_pos):
+            print(j)
+            mul *= int(series[j])
+        print('*')
+        if mul >= result:
+            result = mul
+    logger.info(f'The largest product in the series is {result}')
+
