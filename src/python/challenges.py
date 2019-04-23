@@ -85,13 +85,11 @@ def largestproductinaseries(*args):
     for i in range(len(series)):
         digit = int(series[i])
         mul = digit
-        end_pos = i + consecutive_digits - 1
+        end_pos = i + consecutive_digits
         if end_pos >= len(series):
             end_pos = len(series) - 1
-        for j in range(i, end_pos):
-            print(j)
+        for j in range(i + 1, end_pos):
             mul *= int(series[j])
-        print('*')
         if mul >= result:
             result = mul
     logger.info(f'The largest product in the series is {result}')
