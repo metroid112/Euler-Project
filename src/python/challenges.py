@@ -82,6 +82,7 @@ def largestproductinaseries(*args):
     series = args[0][0]
     consecutive_digits = args[0][1]
     result = 0
+    logger.debug(f'Series:\n{print_matrix(series, 8)}')
     for i in range(len(series)):
         digit = int(series[i])
         mul = digit

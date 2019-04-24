@@ -2,6 +2,7 @@ import logging
 import datetime
 import timeit
 import math
+import numpy
 
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 logging.basicConfig(
@@ -33,6 +34,19 @@ def time_function(function, *args):
     )
     LOGGER.info(f'{function.__name__} took {time} seconds')
     LOGGER.info(separator)
+
+
+# To add cols to set the function
+def print_matrix(series, rows):
+    str_matrix = ''
+    text = ''
+    for i in range(0, len(series)):
+        text += series[i] + ' '
+        if i % rows == 0:
+            text += '\n'
+            str_matrix += text
+            text = ''
+    return str_matrix
 
 
 def is_multiple(number, multiple):
