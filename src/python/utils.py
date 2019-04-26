@@ -36,13 +36,12 @@ def time_function(function, *args):
     LOGGER.info(separator)
 
 
-# To add cols to set the function
-def print_matrix(series, rows):
+def print_matrix(series, cols):
     str_matrix = ''
     text = ''
-    for i in range(0, len(series)):
-        text += series[i] + ' '
-        if i % rows == 0:
+    for i in range(1, len(series) + 1):
+        text += series[i-1] + ' '
+        if i % cols == 0:
             text += '\n'
             str_matrix += text
             text = ''
