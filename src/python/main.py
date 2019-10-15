@@ -4,7 +4,7 @@ import challenges
 
 def main(inside_recursion):
     logger = utils.get_logger()
-    utils.clear_log()
+    # utils.clear_log()
     if not inside_recursion:
         utils.time_function(main, True)
     else:
@@ -40,7 +40,7 @@ def main(inside_recursion):
         #     '71636269561882670428252483600823257530420752963450',
         #     13
         # )
-
+        utils.time_function(challenges.specialpythagoreantriplet, 1000)
 
 
 if __name__ == '__main__':

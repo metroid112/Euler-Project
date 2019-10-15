@@ -2,13 +2,12 @@ import logging
 import datetime
 import timeit
 import math
-import numpy
 
 now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 logging.basicConfig(
     filename='execution.log',
     format='{0} %(levelname)s:\t%(message)s'.format(now),
-    level=logging.DEBUG
+    level=logging.INFO
 )
 LOGGER = logging.getLogger('log')
 separator = '******************************************************************************************'
@@ -117,6 +116,10 @@ def squared_sum(numbers):
         result += i
     LOGGER.debug(f'\tSquared sum of {list(numbers)} is {result * result}')
     return result * result
+
+
+def is_pythagorean_triplet(a, b, c):
+    return a**2 + b**2 == c**2
 
 
 def fibonacci_up_to(limit):
