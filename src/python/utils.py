@@ -7,7 +7,7 @@ now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 logging.basicConfig(
     filename='execution.log',
     format='{0} %(levelname)s:\t%(message)s'.format(now),
-    level=logging.INFO
+    level=logging.DEBUG
 )
 LOGGER = logging.getLogger('log')
 separator = '******************************************************************************************'
@@ -183,6 +183,30 @@ def is_prime(number):
         factor += 6
     LOGGER.debug(f'\t{number} is a prime')
     return True
+
+
+def next_prime(prime):
+    LOGGER.debug(f'\tFinding the next prime after {prime}')
+    new_prime = prime + 2
+    while True:
+        if not is_prime(new_prime):
+            new_prime += 2
+        else:
+            LOGGER.debug(f'\tNext prime is {new_prime}')
+            return new_prime
+
+
+def sieve_of_eratosthenes(prime):
+    LOGGER.debug(f'\tSieve up to prime {prime}')
+    primes = [True] * (prime + 1)
+    limit = math.floor(math.sqrt(prime + 1))
+    i = 2
+    for i in range(i, limit + 1):
+        if primes[i]:
+            j = i ** 2
+            for j in range(j, prime + 1, i):
+                primes[j] = False
+    return primes
 
 
 def is_palindrome(number):

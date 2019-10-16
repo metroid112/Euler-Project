@@ -40,7 +40,8 @@ def main(inside_recursion):
         #     '71636269561882670428252483600823257530420752963450',
         #     13
         # )
-        utils.time_function(challenges.specialpythagoreantriplet, 1000)
+        # utils.time_function(challenges.specialpythagoreantriplet, 1000)
+        utils.time_function(challenges.summationofprimes, 2000000)
 
 
 if __name__ == '__main__':

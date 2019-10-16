@@ -96,6 +96,7 @@ def largestproductinaseries(*args):
     logger.info(f'The largest product in the series is {result}')
 
 
+# NEEDS OPTIMIZATION CURRENTLY 18-30 SECS.
 def specialpythagoreantriplet(*args):
     logger.info(f'Starting challenge: Special Pythagorean triplet')
     pythagorean_sum = args[0][0]
@@ -103,7 +104,6 @@ def specialpythagoreantriplet(*args):
     b = 996
     c = 997
     result = 0
-    print(pythagorean_sum)
     while 4 < c < pythagorean_sum and result == 0:
         b = c - 1
         while 3 < b < c and result == 0:
@@ -111,8 +111,18 @@ def specialpythagoreantriplet(*args):
             while 2 < a < b and result == 0:
                 if a + b + c == pythagorean_sum and is_pythagorean_triplet(a, b, c):
                     result = a * b * c
-                    print(result)
                 a -= 1
             b -= 1
         c -= 1
     logger.info(f'The product of the Pythagorean triplet ({a + 1}, {b + 1}, {c + 1}) whose sum is {pythagorean_sum} is {result}')
+
+
+def summationofprimes(*args):
+    logger.info(f'Starting challenge: Summation of primes')
+    primes_below = args[0][0]
+    prime_sum = 0
+    primes = sieve_of_eratosthenes(primes_below)
+    for i in range(2, primes_below + 1):
+        if primes[i]:
+            prime_sum += i
+    logger.info(f'The sum of primes below {primes_below} is {prime_sum}')
