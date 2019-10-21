@@ -96,25 +96,28 @@ def largestproductinaseries(*args):
     logger.info(f'The largest product in the series is {result}')
 
 
-# NEEDS OPTIMIZATION CURRENTLY 18-30 SECS.
 def specialpythagoreantriplet(*args):
     logger.info(f'Starting challenge: Special Pythagorean triplet')
     pythagorean_sum = args[0][0]
-    a = 995
-    b = 996
-    c = 997
+    a = 3
+    b = 4
+    c = 5
     result = 0
-    while 4 < c < pythagorean_sum and result == 0:
-        b = c - 1
-        while 3 < b < c and result == 0:
-            a = b - 1
-            while 2 < a < b and result == 0:
+    for c in range(5, pythagorean_sum - 6):
+        for b in range(4, c):
+            for a in range(3, b):
+                if a + b + c != pythagorean_sum:
+                    continue
+                if not is_pythagorean_triplet(a, b, c):
+                    continue
                 if a + b + c == pythagorean_sum and is_pythagorean_triplet(a, b, c):
                     result = a * b * c
-                a -= 1
-            b -= 1
-        c -= 1
-    logger.info(f'The product of the Pythagorean triplet ({a + 1}, {b + 1}, {c + 1}) whose sum is {pythagorean_sum} is {result}')
+                    break
+            if result != 0:
+                break
+        if result != 0:
+            break
+    logger.info(f'The product of the Pythagorean triplet ({a}, {b}, {c}) whose sum is {pythagorean_sum} is {result}')
 
 
 def summationofprimes(*args):
